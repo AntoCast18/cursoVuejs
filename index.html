@@ -13,10 +13,11 @@
         const vm = Vue.createApp({
             data(){
                 return {
-                    text: "<p>esto es un párrafo</p>"
+                    attr: "alt",
+                   img: "https://img.freepik.com/vector-gratis/edificio-escolar-institucion-educativa-universidad_107791-1051.jpg?w=740&t=st=1684807283~exp=1684807883~hmac=a161b71d72a0fe3f606224bb92179a53a5f54518956d55f2785fbe7ab1cc5b65"
                 };
             },
-            template: `<div v-html="text"></div>`
+            template: `<img v-bind:[attr]="img" />`
         }).mount("#app");
         console.log(vm);
     </script>
