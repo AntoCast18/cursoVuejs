@@ -8,22 +8,41 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <div id="app"></div>
+    <div id="app"></div>        
     <script>
-        const vm = Vue.createApp({
+    const vm = Vue.createApp({
             data() {
                 return {
-                    evt: "submit",
-                    counter: 0
+                    title: 'Reto del contador',
+                    text: 'Incrementar y decremntar el contador',
+                    img: 'https://www.pngall.com/wp-content/uploads/5/Sailor-Moon-PNG-Download-Image.png',
+                    counter: 0,
                 };
             },
             methods: {
-                submit() {
+                increment() {
                     this.counter++;
+                },
+                decrement() {
+                    this.counter--;
                 }
-             },
-            template: `<form v-on:[evt]="submit"><button>{{ counter }}</button></form>`
-        }).mount("#app");
+            },
+            template: ` 
+                <div class="container">
+                    <h1>{{ title }}</h1>
+                    <p>{{ text }}</p>
+                    <img v-bind:src="img" alt="imagen" />
+                    <p class="text-center fs-1">{{ counter }}</p>
+                    <div class="d-grid gap-0 col-12 d-md-flex justify-content-md-end">
+                        <button class="btn btn-outline-danger col-5 btn-sm" type="button" v-on:click="decrement">--</button>
+                        <div class="container col-2"></div>
+                        <button class="btn btn-outline-primary col-5 btn-sm" type="button" v-on:click="increment">++</button>
+                    </div>
+                </div>
+           `,
+        }).mount('#app');
+        console.log(vm);
     </script>
 </body>
 </html>
+
